@@ -1,12 +1,14 @@
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    height: 100vh;
+    background: #0f2027;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
+/* MAIN CONTAINER */
 .container {
     background: white;
     padding: 30px;
@@ -21,6 +23,7 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* INPUT */
 .input-group {
     position: relative;
     margin-bottom: 20px;
@@ -59,7 +62,8 @@ h2 {
     color: #2575fc;
 }
 
-button {
+/* SUBMIT BUTTON */
+.container > button {
     width: 100%;
     padding: 12px;
     border: none;
@@ -71,12 +75,74 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+.container > button:hover {
     background: #1a5edb;
     transform: scale(1.05);
 }
 
-/* Animation */
+/* COMMON BOX */
+.box {
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    /* display: none;  hidden by default */
+    margin-top: 20px;
+}
+
+/* HAPPY UI */
+.happy {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    animation: pop 0.8s ease;
+    box-shadow: 0 0 30px gold;
+    display: none;
+}
+
+.happy h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.happy .emoji {
+    font-size: 60px;
+    animation: bounce 1s infinite;
+}
+
+/* SAD UI */
+.sad {
+    background: linear-gradient(135deg, #434343, #000000);
+    animation: fade 1s ease;
+    box-shadow: 0 0 20px #ff4d4d;
+    display: none;
+}
+
+.sad h1 {
+    color: #ff4d4d;
+}
+
+.sad .emoji {
+    font-size: 60px;
+    animation: shake 0.8s infinite;
+}
+
+/* BOX BUTTON (separate) */
+.box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: white;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.box button:hover {
+    transform: scale(1.1);
+}
+
+/* ANIMATIONS */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -86,4 +152,27 @@ button:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes pop {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+@keyframes bounce {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-15px);}
+}
+
+@keyframes shake {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(-5px);}
+    50% {transform: translateX(5px);}
+    75% {transform: translateX(-5px);}
+    100% {transform: translateX(0);}
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
